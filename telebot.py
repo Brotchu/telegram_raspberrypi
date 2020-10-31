@@ -1,10 +1,15 @@
 import telepot
 import time
 import RPi.GPIO as GPIO
+import json
 
 
-bot_token = 
-bot = telepot.Bot(token='')
+with open("botToken.json") as json_data:
+	data =  json.load(json_data)
+
+print(data)
+bot_token=data['token_value']
+bot = telepot.Bot(token= bot_token)
 print(bot)
 
 offset = 0
@@ -43,7 +48,7 @@ while True:
             bot.sendMessage(chat_id=chatId, text="turning light off.")
         elif cmd == "Shutdown":
             print("Shutting down bot program")
-		GPIO.output(ledPin, GPIO.LOW)
+		#GPIO.output(ledPin, GPIO.LOW)
             GPIO.cleanup()
             bot.sendMessage(chat_id=chatId, text="Going for a nap.")
             exit()
