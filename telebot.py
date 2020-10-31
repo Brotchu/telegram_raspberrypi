@@ -3,7 +3,8 @@ import time
 import RPi.GPIO as GPIO
 
 
-bot = telepot.Bot(token='1238472039:AAEE6eaXbee1oMYxTUsFIBRh8ZXT7ZULJ88')
+bot_token = 
+bot = telepot.Bot(token='')
 print(bot)
 
 offset = 0
